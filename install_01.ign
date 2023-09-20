@@ -1,0 +1,30 @@
+{
+  "ignition": {
+    "version": "3.0.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "gecos": "CoreOS Admin",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAICEqCucBRMcSHpY9O5XTeH7JYw5O9O6BQPJRa60vjKNF"
+        ]
+        "groups": [
+          "adm",
+          "sudo",
+          "systemd-journal",
+          "wheel"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "files": [{
+      "path": "/etc/hostname",
+      "mode": 420,
+      "overwrite": true,
+      "contents": { "source": "data:,coreos" }
+    }]
+  }
+}
