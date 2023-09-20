@@ -7,9 +7,10 @@
       {
         "name": "core",
         "gecos": "CoreOS Admin",
+        "passwordHash": "$66dc35138b785cdaac7310380bf0940f4a5f5c0d6e2c99a317ccaed9dfeb48330c0182341b76d8369c98dd62ec8f159b1389017b5d848eaf47cc0cffcbdb4bc6"
         "sshAuthorizedKeys": [
           "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAICEqCucBRMcSHpY9O5XTeH7JYw5O9O6BQPJRa60vjKNF"
-        ],
+        ],r
         "groups": [
           "adm",
           "sudo",
@@ -26,5 +27,18 @@
       "overwrite": true,
       "contents": { "source": "data:,coreos" }
     }]
+  },
+  "systemd": {
+    "units": [
+      {
+        "dropins": [
+          {
+            "contents": "[Service]\n# Override Execstart in main unit\nExecStart=\n# Add new Execstart with `-` prefix to ignore failure`\nExecStart=-/usr/sbin/agetty --autologin core --noclear %I $TERM\n",
+            "name": "autologin-core.conf"
+          }
+        ],
+        "name": "serial-getty@ttyS0.service"
+      }
+    ]
   }
 }
