@@ -9,7 +9,7 @@
         "gecos": "CoreOS Admin",
         "sshAuthorizedKeys": [
           "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAICEqCucBRMcSHpY9O5XTeH7JYw5O9O6BQPJRa60vjKNF"
-        ]
+        ],
         "groups": [
           "adm",
           "sudo",
