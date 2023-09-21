@@ -1,12 +1,26 @@
 {
   "ignition": {
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
-  "networkd": {
-    "units": [
+  "storage": {
+    "files": [
       {
-        "contents": "[Match]\nName=eth0\n\n[Network]\nDNS=8.8.8.8;8.8.4.4\nAddress=192.168.11.88/24\nGateway=192.168.11.1",
-        "name": "00-eth0.network"
+        "path": "/etc/NetworkManager/system-connections/eth0.nmconnection",
+        "mode": 384,
+        "overwrite": true,
+        "contents": {
+          "source": "data:text/plain;charset=utf-8;base64,Cltjb25uZWN0aW9uXQppZD1ldGgwCnR5cGU9ZXRoZXJuZXQKaW50ZXJmYWNlLW5hbWU9ZXRoMAoKW2lwdjRdCmRucy1zZWFyY2g9Cm1ldGhvZD1tYW51YWwKYWRkcmVzczE9MTkyLjE2OC4xMS44OC8yNCwxOTIuMTY4LjExLjEKCltpcHY2XQpkbnMtc2VhcmNoPQphZGRyLWdlbi1tb2RlPWV1aTY0Cm1ldGhvZD1pZ25vcmUK",
+          "human_read": "\n[connection]\nid=eth0\ntype=ethernet\ninterface-name=eth0\n\n[ipv4]\ndns-search=\nmethod=manual\naddress1=192.168.11.88/24,192.168.11.1\n\n[ipv6]\ndns-search=\naddr-gen-mode=eui64\nmethod=ignore\n"
+        }
+      },
+      {
+        "path": "/etc/NetworkManager/conf.d/noauto.conf",
+        "mode": 420,
+        "overwrite": true,
+        "contents": {
+          "source": "data:text/plain;charset=utf-8;base64,W21haW5dCiMgRG8gbm90IGRvIGF1dG9tYXRpYyAoREhDUC9TTEFBQykgY29uZmlndXJhdGlvbiBvbiBldGhlcm5ldCBkZXZpY2VzCiMgd2l0aCBubyBvdGhlciBtYXRjaGluZyBjb25uZWN0aW9ucy4Kbm8tYXV0by1kZWZhdWx0PSoK",
+          "human_read": "[main]\n# Do not do automatic (DHCP/SLAAC) configuration on ethernet devices\n# with no other matching connections.\nno-auto-default=*\n"
+        }
       }
     ]
   },
@@ -17,7 +31,7 @@
         "gecos": "CoreOS Admin",
         "passwordHash": "$6$ijM8.hHcybom1hVP$A2Bc6gpYu51XL8dJFoUP9RWWUZOk.ZGfKmt9QfboDn4vidlbuJk7MOU/kG3xa8oKIIUqLkypQOHi5VzqsMnUw0",
         "sshAuthorizedKeys": [
-          "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAICEqCucBRMcSHpY9O5XTeH7JYw5O9O6BQPJRa60vjKNF"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICEqCucBRMcSHpY9O5XTeH7JYw5O9O6BQPJRa60vjKNF"
         ],
         "groups": [
           "adm",
